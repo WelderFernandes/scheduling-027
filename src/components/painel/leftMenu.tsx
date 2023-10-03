@@ -25,7 +25,7 @@ function ItemsMenu() {
     setOpen(open === value ? 0 : value)
   }
   return (
-    <>
+    <Card className="m-none hidden min-h-full max-w-[20rem] flex-1 bg-red-500 p-4 shadow-xl md:flex">
       <div className="mb-2 flex items-center gap-4 p-4">
         {/* <img src="/img/logo-ct-dark.png" alt="brand" className="h-8 w-8" /> */}
         <Typography variant="h5" color="blue-gray">
@@ -194,7 +194,7 @@ function ItemsMenu() {
           </Typography>
         </div>
       </Alert>
-    </>
+    </Card>
   )
 }
 export function DrawerDefault() {
@@ -221,10 +221,10 @@ export function DrawerDefault() {
 
 export default function LeftMenu() {
   return (
-    <div className="flex flex-1 items-start justify-start align-middle">
-      <Card className="hidden h-[calc(100vh-2rem)] w-full max-w-[20rem]  p-4 shadow-xl shadow-blue-gray-900/5 md:flex">
-        <ItemsMenu />
-      </Card>
+    <div className=" items-start justify-start align-middle">
+      {/* <Card className="hidden max-w-[20rem] flex-1 bg-red-500 p-4 shadow-xl md:flex"> */}
+      <ItemsMenu />
+      {/* </Card> */}
       <div className="flex flex-1 content-start justify-start align-middle md:invisible">
         <DrawerDefault />
       </div>

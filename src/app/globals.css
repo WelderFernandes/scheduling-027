@@ -7,21 +7,58 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
-
+/* 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #e6e6e6;
+}
+
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.react-calendar {
+  background: #F1F1F1 !important;
+  border: 0px !important;
+}
+
+abbr {
+  color: gray;
+  font-weight: 600;
+  font-size: small;
+}
+
+.react-calendartile--now {
+  background: transparent !important;
+}
+
+.react-calendartile--active {
+  background: #111827 !important;
+  color: white !important;
+  border-radius: 25%;
+  padding: 0px 0px !important;
+}
+
+ .react-calendartile--active abbr {
+  background: #111827 !important;
+  color: white !important;
+  border-radius: 30%;
+  padding: 0px !important;
+}
+
+.react-calendarnavigationlabellabelText {
+  color: #111827 !important;
+  font-weight: 600;
+}
+
+.react-calendarmonth-viewdays__day:disabled {
+  text-decoration: line-through !important;
+  color: red;
 }

@@ -14,12 +14,13 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
       <body className={inter.className}>
-        <section className="min-h-screen bg-white">
-          <div className="flex flex-1">
-            <LeftMenu />
-            {children}
+        <div className="flex min-h-screen justify-between">
+          <LeftMenu />
+          {children}
+          <div className="bg-blue-gray-500 text-black">
+            <h1>Right Menu</h1>
           </div>
-        </section>
+        </div>
       </body>
     </html>
   )

@@ -1,7 +1,7 @@
 export default function Agendamento() {
   return (
-    <div className="flex">
-      <span>Dashboard</span>
+    <div className="text-black">
+      <h5>Dashboard</h5>
     </div>
   )
 }
