@@ -1,3 +1,4 @@
+import Header from '@/components/painel/header'
 import LeftMenu from '@/components/painel/leftMenu'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -12,16 +13,19 @@ export const metadata: Metadata = {
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR">
-      <body className={inter.className}>
-        <div className="flex min-h-screen justify-between">
-          <LeftMenu />
+    <section className={inter.className}>
+      <div className="flex flex-1 justify-between bg-white">
+        <LeftMenu />
+        <div className="flex flex-1 flex-col text-black">
+          <header className="mx-auto w-full justify-between  text-black">
+            <Header />
+          </header>
           {children}
-          <div className="bg-blue-gray-500 text-black">
-            <h1>Right Menu</h1>
-          </div>
         </div>
-      </body>
-    </html>
+        <div className="flex text-black">
+          <h1>Right Menu</h1>
+        </div>
+      </div>
+    </section>
   )
 }

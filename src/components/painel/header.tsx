@@ -1,41 +1,30 @@
-import { dateNow } from '@/app/utils/datenow'
+'use client'
+import { Badge, IconButton, Navbar, Typography } from '@material-tailwind/react'
 import { BsBell } from 'react-icons/bs'
-import { HiMenuAlt1 } from 'react-icons/hi'
 
-export function Header() {
+export default function Header() {
   return (
-    <div className="navbar flex justify-between ">
-      <div className="items-left drawer-content flex flex-col justify-center p-2">
-        <label
-          htmlFor="my-drawer-2"
-          className="btn btn-square border-none bg-transparent lg:hidden"
+    <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 shadow-none lg:px-8 lg:py-4">
+      <div className="flex items-center justify-between text-blue-gray-900">
+        <Typography
+          as="p"
+          href="#"
+          className="mr-4 cursor-pointer py-1.5 font-medium"
         >
-          <HiMenuAlt1 className=" h-5 w-5 " />
-        </label>
-      </div>
-      <div className="prose navbar-start">
-        <h2>Dashboard</h2>
-      </div>
-      <div className="navbar-end gap-8">
-        <h3>{dateNow()}</h3>
-        <button className="btn btn-circle btn-ghost">
-          <div className="indicator">
-            <span className="badge indicator-item badge-primary badge-xs z-0"></span>
-            {/* <div className="grid h-32 w-32 place-items-center bg-base-300">
-              content
-            </div> */}
-            <BsBell className=" h-5 w-5 " />
-          </div>
-        </button>
-        <div className="items-left drawer-content flex flex-col justify-center p-2">
-          <label
-            htmlFor="my-drawer-1"
-            className="btn btn-square border-none bg-transparent lg:hidden"
-          >
-            <HiMenuAlt1 className=" h-5 w-5 " />
-          </label>
+          Dashboard
+        </Typography>
+        <div className="flex items-center gap-4">
+          <Badge color="red" className="absolute">
+            <IconButton
+              // ripple={false}
+              variant="text"
+              className="rounded-full bg-gray-200 hover:bg-transparent focus:bg-transparent active:bg-transparent active:ring-1"
+            >
+              <BsBell className="h-6 w-6" />
+            </IconButton>
+          </Badge>
         </div>
       </div>
-    </div>
+    </Navbar>
   )
 }

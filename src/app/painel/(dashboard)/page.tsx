@@ -1,7 +1,10 @@
+'use client'
+import { Typography } from '@material-tailwind/react'
+
 export default function Agendamento() {
   return (
-    <div className="text-black">
-      <h5>Dashboard</h5>
+    <div className="">
+      <Typography color="blue-gray">Dashboard</Typography>
     </div>
   )
 }
