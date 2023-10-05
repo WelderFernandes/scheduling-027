@@ -1,32 +1,24 @@
 'use client'
 import {
-  Accordion,
-  AccordionBody,
-  AccordionHeader,
   Alert,
   Card,
-  Chip,
   Drawer,
   IconButton,
   List,
   ListItem,
   ListItemPrefix,
-  ListItemSuffix,
   Typography,
 } from '@material-tailwind/react'
 import Image from 'next/image'
+import Link from 'next/link'
 import React, { useState } from 'react'
 import { BiMenuAltLeft } from 'react-icons/bi'
-import { BsArrowDownShort } from 'react-icons/bs'
+import { RxDashboard } from 'react-icons/rx'
 import { TfiClose } from 'react-icons/tfi'
-import { TiArrowDown } from 'react-icons/ti'
 
 function ItemsMenu() {
-  const [open, setOpen] = useState<number>(0)
   const [openAlert, setOpenAlert] = useState<boolean>(true)
-  const handleOpen = (value: number) => {
-    setOpen(open === value ? 0 : value)
-  }
+
   return (
     <>
       <Card className="min-h-screen w-[18rem] flex-1 rounded-none border-none pt-4 ">
@@ -34,104 +26,29 @@ function ItemsMenu() {
           <Image src="/img/logo/logo.png" width={100} height={100} alt="logo" />
         </div>
         <List>
-          <Accordion
-            open={open === 1}
-            icon={
-              <TiArrowDown
-                strokeWidth={2.5}
-                className={`mx-auto h-4 w-4 transition-transform ${
-                  open === 1 ? 'rotate-180' : ''
-                }`}
-              />
-            }
-          >
-            <ListItem className="p-0" selected={open === 1}>
-              <AccordionHeader
-                onClick={() => handleOpen(1)}
-                className="border-b-0 p-3"
-              >
-                <ListItemPrefix>
-                  {/* <PresentationChartBarIcon className="h-5 w-5" /> */}
-                </ListItemPrefix>
-                <Typography color="blue-gray" className="mr-auto font-normal">
-                  Dashboard
-                </Typography>
-              </AccordionHeader>
-            </ListItem>
-            <AccordionBody className="py-1">
-              <List className="p-0">
-                <ListItem>
-                  <ListItemPrefix>
-                    {/* <ChevronRightIcon strokeWidth={3} className="h-3 w-5" /> */}
-                  </ListItemPrefix>
-                  <Typography color="blue-gray">Sidebar</Typography>
-                </ListItem>
-                <ListItem>
-                  <ListItemPrefix>
-                    {/* <ChevronRightIcon strokeWidth={3} className="h-3 w-5" /> */}
-                  </ListItemPrefix>
-                  <Typography color="blue-gray">Sidebar</Typography>
-                </ListItem>
-              </List>
-            </AccordionBody>
-          </Accordion>
-          <Accordion
-            open={open === 2}
-            icon={
-              <BsArrowDownShort
-                className={`mx-auto h-4 w-4 transition-transform ${
-                  open === 1 ? 'rotate-180' : ''
-                }`}
-              />
-            }
-          >
-            <ListItem className="p-0" selected={open === 2}>
-              <AccordionHeader
-                onClick={() => handleOpen(2)}
-                className="border-b-0 p-3"
-              >
-                <ListItemPrefix>
-                  {/* <ShoppingBagIcon className="h-5 w-5" /> */}
-                </ListItemPrefix>
-                <Typography color="blue-gray" className="mr-auto font-normal">
-                  E-Commerce
-                </Typography>
-              </AccordionHeader>
-            </ListItem>
-            <AccordionBody className="py-1">
-              <List className="p-0">
-                <ListItem>
-                  <ListItemPrefix>
-                    {/* <ChevronRightIcon strokeWidth={3} className="h-3 w-5" /> */}
-                  </ListItemPrefix>
-                  Orders
-                </ListItem>
-                <ListItem>
-                  <ListItemPrefix>
-                    {/* <ChevronRightIcon strokeWidth={3} className="h-3 w-5" /> */}
-                  </ListItemPrefix>
-                  Products
-                </ListItem>
-              </List>
-            </AccordionBody>
-          </Accordion>
-          <hr className="my-2 border-blue-gray-50" />
-          <ListItem>
-            <ListItemPrefix>
-              {/* <InboxIcon className="h-5 w-5" /> */}
-            </ListItemPrefix>
-            Inbox
-            <ListItemSuffix>
-              <Chip
-                value="14"
-                size="sm"
-                variant="ghost"
-                color="blue-gray"
-                className="rounded-full"
-              />
-            </ListItemSuffix>
+          <ListItem className="p-2">
+            <Link href="/painel" className="flex">
+              <ListItemPrefix color="blue">
+                <RxDashboard className="h-5 w-5" />
+              </ListItemPrefix>
+              <Typography color="blue-gray" className="mr-auto font-normal">
+                Dashboard
+              </Typography>
+            </Link>
+          </ListItem>
+          <ListItem className=" p-2">
+            <Link href="/painel/category" className="flex">
+              <ListItemPrefix color="blue">
+                <RxDashboard className="h-5 w-5" />
+              </ListItemPrefix>
+              <Typography color="blue-gray" className="mr-auto font-bold">
+                Categorias
+              </Typography>
+            </Link>
           </ListItem>
         </List>
+
+        {/* SEJA PRO */}
         <Alert
           open={openAlert}
           className="mt-auto"
@@ -164,6 +81,7 @@ function ItemsMenu() {
     </>
   )
 }
+
 export function DrawerDefault() {
   const [open, setOpen] = React.useState(false)
 
