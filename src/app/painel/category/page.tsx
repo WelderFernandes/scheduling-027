@@ -32,7 +32,6 @@ export default function Category() {
   const { data, error, isLoading } = useSWR<Categories[]>(URL, fetcher)
 
   console.log(data, error, isLoading)
-
   return (
     <div className="container mx-auto">
       {isLoading ? (
