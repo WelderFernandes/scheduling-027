@@ -35,30 +35,31 @@ abbr {
   font-size: small;
 }
 
-.react-calendartile--now {
+.react-calendar__tile--now {
   background: transparent !important;
 }
 
-.react-calendartile--active {
+.react-calendar__tile--active {
   background: #111827 !important;
   color: white !important;
   border-radius: 25%;
   padding: 0px 0px !important;
 }
 
- .react-calendartile--active abbr {
+ .react-calendar__tile--active abbr {
   background: #111827 !important;
   color: white !important;
   border-radius: 30%;
   padding: 0px !important;
 }
 
-.react-calendarnavigationlabellabelText {
+.react-calendar__navigation__label__labelText {
   color: #111827 !important;
   font-weight: 600;
 }
 
-.react-calendarmonth-viewdays__day:disabled {
+.react-calendar__month-view__days__day:disabled {
   text-decoration: line-through !important;
   color: red;
 }
+
