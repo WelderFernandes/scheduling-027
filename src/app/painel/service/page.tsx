@@ -1,26 +1,27 @@
 'use client'
 
-import { Categories } from '@/types'
+import { Services } from '@/types'
 import useSWR from 'swr'
 
 import { DialogModal } from '@/components/painel/dialogModal'
 import ListCard from '@/components/painel/listCard'
 import { Typography } from '@material-tailwind/react'
 
-export default function Category() {
+export default function Service() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
-  const URL = 'http://localhost:3002/category'
+  const URL = 'http://localhost:3002/service'
 
-  const { data, error, isLoading } = useSWR<Categories[]>(URL, fetcher)
+  const { data, error, isLoading } = useSWR<Services[]>(URL, fetcher)
 
   const ROWS = data?.map((row) => {
-    const { id, name, image, status } = row as Categories
+    const { id, name, image, status, value } = row as Services
     return {
       id,
       img: image,
       name,
       status,
+      value,
     }
   })
 

@@ -1,6 +1,5 @@
 'use client'
 import {
-  Alert,
   Card,
   Drawer,
   IconButton,
@@ -21,7 +20,7 @@ function ItemsMenu() {
 
   return (
     <>
-      <Card className="min-h-screen w-[18rem] flex-1 rounded-none border-none pt-4 ">
+      <Card className="min-h-[calc(100vh-42px)] w-[18rem] flex-1 rounded-none border-none pt-4 ">
         <div className="flex  items-center justify-center">
           <Image src="/img/logo/logo.png" width={100} height={100} alt="logo" />
         </div>
@@ -46,15 +45,24 @@ function ItemsMenu() {
               </Typography>
             </Link>
           </ListItem>
+          <ListItem className=" p-2">
+            <Link href="/painel/service" className="flex">
+              <ListItemPrefix color="blue">
+                <RxDashboard className="h-5 w-5" />
+              </ListItemPrefix>
+              <Typography color="blue-gray" className="mr-auto font-bold">
+                Serviços
+              </Typography>
+            </Link>
+          </ListItem>
         </List>
 
         {/* SEJA PRO */}
-        <Alert
+        {/* <Alert
           open={openAlert}
           className="mt-auto"
           onClose={() => setOpenAlert(false)}
         >
-          {/* <CubeTransparentIcon className="mb-4 h-12 w-12" /> */}
           <Typography variant="h6" className="mb-1">
             Upgrade to PRO
           </Typography>
@@ -76,7 +84,7 @@ function ItemsMenu() {
               Upgrade Now
             </Typography>
           </div>
-        </Alert>
+        </Alert> */}
       </Card>
     </>
   )
@@ -89,7 +97,8 @@ export function DrawerDefault() {
   const closeDrawer = () => setOpen(false)
 
   return (
-    <div className="flex flex-1 content-start justify-start align-middle md:hidden">
+    // <div className="flex flex-1 content-start justify-start align-middle md:hidden">
+    <div className=" flex content-start justify-start align-middle">
       <IconButton
         onClick={openDrawer}
         className="none border-none bg-transparent text-black shadow-none focus:outline-none"
@@ -113,11 +122,20 @@ export function DrawerDefault() {
 
 export default function LeftMenu() {
   return (
-    <div className="min-h-screen items-start justify-start align-middle">
-      <div className="hidden md:flex">
+    // <div className="min-h-screen items-start justify-start align-middle">
+    //   <div className="hidden md:flex">
+    //     <ItemsMenu />
+    //   </div>
+    //   <div className="hiddem  flex-1 md:flex">
+    //     <DrawerDefault />
+    //   </div>
+    // </div>
+
+    <div className="items-start justify-start align-middle">
+      <div className="hidden ">
         <ItemsMenu />
       </div>
-      <div className="hiddem  flex-1 md:flex">
+      <div className="">
         <DrawerDefault />
       </div>
     </div>
